@@ -147,6 +147,11 @@ const btn = new Btn('file picker', ()=>{
 					console.log(' isJpg ', isJpg);
 					return 
 				}
+				const isHDR = await magicNumber.isHDR(file);
+				if(isHDR){
+					console.log(' isHDR ', isHDR);
+					return 
+				}
 
 			}
 		}
