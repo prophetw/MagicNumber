@@ -132,8 +132,21 @@ const btn = new Btn('file picker', ()=>{
 			const file = files[0]
 			console.log('file', file);
 			if(file instanceof File){
-				const isPng = await magicNumber.isPNG(file)
-				console.log(' isPng ', isPng);
+				const isWebP = await magicNumber.isWebP(file);
+				if(isWebP){
+					console.log(' isWebP ', isWebP);
+					return 
+				}
+				const isPng = await magicNumber.isPNG(file);
+				if(isPng){
+					console.log(' isPng ', isPng);
+					return 
+				}
+				const isJpg = await magicNumber.isJPG(file);
+				if(isJpg){
+					console.log(' isJpg ', isJpg);
+					return 
+				}
 
 			}
 		}
